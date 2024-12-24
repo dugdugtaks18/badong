@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>For My Love</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        background: linear-gradient(135deg, #1a0033, #000000);
+        font-family: "Arial", sans-serif;
+        color: #fff;
+        min-height: 100vh;
+        padding: 2rem;
+      }
+
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      header {
+        text-align: center;
+        margin-bottom: 3rem;
+      }
+
+      h1 {
+        font-size: 3rem;
+        color: #b666d2;
+        margin-bottom: 1rem;
+        text-shadow: 0 0 10px rgba(182, 102, 210, 0.3);
+      }
+
+      .intro {
+        font-size: 1.2rem;
+        color: #e6b3ff;
+        margin-bottom: 2rem;
+      }
+
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 2rem;
+        margin-bottom: 3rem;
+      }
+
+      .card {
+        background: rgba(26, 0, 51, 0.7);
+        border: 2px solid #b666d2;
+        border-radius: 15px;
+        padding: 2rem;
+        transition: transform 0.3s ease;
+      }
+
+      .card h2 {
+        color: #b666d2;
+        margin-bottom: 1rem;
+        font-size: 1.5rem;
+      }
+
+      .card p {
+        color: #e6b3ff;
+        line-height: 1.6;
+      }
+
+      .memories {
+        margin-bottom: 3rem;
+      }
+
+      .memory-item {
+        background: rgba(0, 0, 0, 0.3);
+        border: 2px solid #b666d2;
+        border-radius: 15px;
+        padding: 1.5rem;
+        margin-bottom: 2rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 1.5rem;
+        transition: transform 0.3s ease;
+        box-shadow: 0 4px 15px rgba(182, 102, 210, 0.2);
+      }
+
+      .memory-item:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 25px rgba(182, 102, 210, 0.3);
+      }
+
+      .memory-image {
+        width: 300px;
+        height: 300px;
+        object-fit: cover;
+        border-radius: 15px;
+        border: 3px solid #b666d2;
+        transition: transform 0.3s ease;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+      }
+
+      .memory-image:hover {
+        transform: scale(1.02);
+      }
+
+      .memory-item p {
+        font-size: 1.2rem;
+        color: #e6b3ff;
+        text-align: center;
+        font-style: italic;
+      }
+
+      .memories h2 {
+        color: #b666d2;
+        font-size: 2rem;
+        text-align: center;
+        margin-bottom: 2rem;
+        text-shadow: 0 0 10px rgba(182, 102, 210, 0.3);
+      }
+      .btn {
+        display: inline-block;
+        background: #b666d2;
+        color: white;
+        padding: 1rem 2rem;
+        border: none;
+        border-radius: 25px;
+        font-size: 1.1rem;
+        cursor: pointer;
+        transition: background 0.3s ease;
+      }
+
+      .btn:hover {
+        background: #9d4edd;
+      }
+
+      .footer {
+        text-align: center;
+        margin-top: 3rem;
+        padding: 2rem;
+        border-top: 1px solid rgba(182, 102, 210, 0.3);
+      }
+
+      @media (max-width: 768px) {
+        body {
+          padding: 1rem;
+        }
+
+        h1 {
+          font-size: 2rem;
+        }
+
+        .grid {
+          grid-template-columns: 1fr;
+        }
+      }
+      .memory-item {
+        background: rgba(0, 0, 0, 0.3);
+        border-left: 4px solid #b666d2;
+        padding: 1rem;
+        margin-bottom: 1rem;
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+      }
+      .memory-image {
+        width: 100px;
+        height: 100px;
+        object-fit: cover;
+        border-radius: 10px;
+        border: 2px solid #b666d2;
+      }
+      .flower-garden {
+        position: fixed;
+        bottom: 20px;
+        left: 20px;
+        z-index: 100;
+      }
+      .flower {
+        position: fixed;
+        font-size: 2rem;
+        pointer-events: none;
+        animation: growFlower 2s forwards;
+        text-shadow: 0 0 10px currentColor;
+      }
+
+      @keyframes growFlower {
+        0% {
+          transform: scale(0) translateY(0);
+          opacity: 0;
+        }
+        50% {
+          transform: scale(1) translateY(-20px);
+          opacity: 1;
+        }
+        100% {
+          transform: scale(1) translateY(-100px);
+          opacity: 0;
+        }
+      }
+      .flower-btn {
+        background: #b666d2;
+        color: white;
+        padding: 1rem;
+        border: none;
+        border-radius: 50%;
+        width: 60px;
+        height: 60px;
+        font-size: 1.5rem;
+        cursor: pointer;
+        transition: background 0.3s ease;
+        box-shadow: 0 4px 15px rgba(182, 102, 210, 0.3);
+      }
+
+      .flower-btn:hover {
+        background: #9d4edd;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <h1>To My Dearest</h1>
+        <p class="intro">
+          Every moment with you is a treasure I hold dear to my heart.
+        </p>
+      </header>
+
+      <div class="grid">
+        <div class="card">
+          <h2>Our Story</h2>
+          <p>
+            From the moment we first met, I knew there was something special
+            about you. Your smile, your laugh, and your presence make every day
+            brighter.
+          </p>
+        </div>
+
+        <div class="card">
+          <h2>Why You're Special</h2>
+          <p>
+            Your kindness knows no bounds, your strength inspires me, and your
+            love makes everything possible. You're not just my partner; you're
+            my best friend.
+          </p>
+        </div>
+
+        <div class="card">
+          <h2>Our Future</h2>
+          <p>
+            I dream of all the adventures we'll share, the memories we'll
+            create, and the life we'll build together. With you, every tomorrow
+            is brighter than today.
+          </p>
+        </div>
+      </div>
+
+      <div class="memories">
+        <h2>Special Moments</h2>
+        <div class="memory-item">
+          <img
+            src="https://via.placeholder.com/100x100.png?text=First+Date"
+            alt="First Date"
+            class="memory-image"
+          />
+          <p>Our first date</p>
+        </div>
+        <div class="memory-item">
+          <img
+            src="https://via.placeholder.com/100x100.png?text=First+Laugh"
+            alt="First Laugh"
+            class="memory-image"
+          />
+          <p>Our first laugh together</p>
+        </div>
+        <div class="memory-item">
+          <img
+            src="https://via.placeholder.com/100x100.png?text=Special+Moment"
+            alt="Special Moment"
+            class="memory-image"
+          />
+          <p>The moment I knew you were the one</p>
+        </div>
+      </div>
+      <div style="text-align: center">
+        <button class="btn" onclick="showLove()">Click For A Surprise</button>
+      </div>
+      <div class="flower-garden">
+        <button class="flower-btn" onclick="createFlower()">❀</button>
+      </div>
+
+      <script>
+        function createFlower() {
+          const flowers = ["❀", "❁", "✿", "❃", "❋", "✽", "✾"];
+          const colors = [
+            "#b666d2", // Light violet
+            "#e6b3ff", // Soft lavender
+            "#ff99ff", // Light pink
+            "#ffb3ff", // Baby pink
+            "#cc99ff", // Soft purple
+            "#d4a5ff", // Light orchid
+            "#dda0dd", // Plum
+            "#e0b0ff", // Mauve
+            "#f2c1ff", // Pale violet
+            "#f8bfff", // Light magenta
+          ];
+
+          // Create the flower element
+          const flower = document.createElement("div");
+          flower.className = "flower";
+          flower.textContent =
+            flowers[Math.floor(Math.random() * flowers.length)];
+          flower.style.color =
+            colors[Math.floor(Math.random() * colors.length)];
+
+          // Center the flower above the button
+          const button = document.querySelector(".flower-btn");
+          const buttonRect = button.getBoundingClientRect();
+          const x = buttonRect.left + buttonRect.width / 2 - 15; // Adjust for flower size
+          const y = buttonRect.top - 20; // Start slightly above the button
+
+          flower.style.left = x + "px";
+          flower.style.top = y + "px";
+
+          document.body.appendChild(flower);
+
+          // Remove the flower element after animation
+          setTimeout(() => {
+            flower.remove();
+          }, 2000);
+        }
+      </script>
+
+      <footer class="footer">
+        <p>Forever yours</p>
+      </footer>
+    </div>
+
+    <script>
+      function showLove() {
+        const messages = [
+          "You mean everything to me",
+          "You're my favorite person",
+          "You make me so happy",
+          "I love you more each day",
+          "You're my dream come true",
+        ];
+
+        const randomMessage =
+          messages[Math.floor(Math.random() * messages.length)];
+        alert(randomMessage);
+      }
+    </script>
+  </body>
+</html>
